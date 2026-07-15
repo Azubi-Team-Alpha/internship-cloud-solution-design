@@ -280,24 +280,19 @@ const avatarSrcs: Array<string> = [
     
     <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
       {[
-        { name: "Mustapha Haadi", role: "Team Lead", lead: true },
-        { name: "David Yirenkyi", role: "Member", lead: false },
-        { name: "Emmanuel Yelisomah", role: "Member", lead: false },
-        { name: "Daniel Hanson Reynolds", role: "Member", lead: false },
-        { name: "Zakaria Adeeba", role: "Member", lead: false },
-        { name: "Evame Cobblah", role: "Member", lead: false }
+        { name: "Mustapha Haadi", role: "Developer" },
+        { name: "David Yirenkyi", role: "Developer" },
+        { name: "Emmanuel Yelisomah", role: "Developer" },
+        { name: "Daniel Hanson Reynolds", role: "Developer" },
+        { name: "Zakaria Adeeba", role: "Developer" },
+        { name: "Evame Cobblah", role: "Developer" }
       ].map((member) => (
-        <div class={`flex flex-col items-center justify-center p-6 border rounded-2xl text-center shadow-xs transition duration-300 hover:scale-[1.02] hover:shadow-md ${member.lead ? 'bg-yellow-50/20 dark:bg-neutral-900/50 border-yellow-400 dark:border-yellow-500/50' : 'bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800'}`}>
-          <div class={`flex h-14 w-14 items-center justify-center rounded-full font-black text-lg mb-3 shadow-xs ${member.lead ? 'bg-gradient-to-br from-yellow-450 to-orange-450 text-neutral-800' : 'bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300'}`}>
+        <div class="flex flex-col items-center justify-center p-6 border rounded-2xl text-center shadow-xs transition duration-350 hover:scale-[1.03] hover:shadow-md bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 hover:border-yellow-400 dark:hover:border-yellow-500/50">
+          <div class="flex h-14 w-14 items-center justify-center rounded-full font-black text-lg mb-3 shadow-xs bg-gradient-to-br from-yellow-400 to-orange-400 text-neutral-800">
             {member.name.split(" ").map(n => n[0]).join("")}
           </div>
           <span class="text-sm font-bold text-neutral-800 dark:text-neutral-200">{member.name}</span>
-          <span class="text-xs text-neutral-550 dark:text-neutral-400 mt-1 font-medium">{member.role}</span>
-          {member.lead && (
-            <span class="mt-2 inline-flex items-center gap-1.5 rounded-full bg-yellow-100 px-2 py-0.5 text-[9px] font-bold text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">
-              👑 Core Lead
-            </span>
-          )}
+          <span class="text-xs text-neutral-500 dark:text-neutral-400 mt-1 font-semibold">{member.role}</span>
         </div>
       ))}
     </div>
