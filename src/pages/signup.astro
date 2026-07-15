@@ -4,76 +4,73 @@ import { SITE } from '@data/constants';
 
 const pageTitle = `Create Account | ${SITE.title}`;
 const metaDescription = 'Create your free AlphaPay account and start sending money across Africa instantly.';
-const ogTitle = 'Create Account | AlphaPay';
 ---
 
-<MainLayout
-  title={pageTitle}
-  customDescription={metaDescription}
-  customOgTitle={ogTitle}
->
-  <section class="flex min-h-[calc(100vh-80px)] items-center justify-center py-12 px-4">
-    <div class="w-full max-w-md">
-      <!-- Card -->
-      <div class="relative overflow-hidden rounded-3xl border border-neutral-200/80 bg-white shadow-2xl dark:border-neutral-700/60 dark:bg-neutral-900">
-        <!-- Top gradient bar -->
-        <div class="h-1.5 w-full bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-500"></div>
+<MainLayout title={pageTitle} customDescription={metaDescription}>
+  <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+    <div class="mx-auto max-w-md">
 
-        <div class="p-8 sm:p-10">
-          <!-- Logo & Heading -->
-          <div class="mb-8 text-center">
-            <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 shadow-lg shadow-indigo-500/30">
-              <svg class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-              </svg>
-            </div>
-            <h1 class="text-2xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100">Create your account</h1>
-            <p class="mt-1.5 text-sm text-neutral-500 dark:text-neutral-400">Join 500,000+ Africans on AlphaPay</p>
-          </div>
+      <div class="mb-6 text-center">
+        <h1 class="text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200">
+          Create your AlphaPay account
+        </h1>
+        <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+          Already have an account?{' '}
+          <a href="/signin" class="font-medium text-orange-400 decoration-2 hover:underline dark:text-orange-400">
+            Sign in here
+          </a>
+        </p>
+      </div>
 
-          <!-- Step Indicator -->
-          <div class="mb-6 flex items-center gap-2">
-            <div id="step1-dot" class="h-2 flex-1 rounded-full bg-blue-500 transition-all"></div>
-            <div id="step2-dot" class="h-2 flex-1 rounded-full bg-neutral-200 transition-all dark:bg-neutral-700"></div>
-          </div>
+      {/* Step indicator */}
+      <div class="mb-5 flex gap-2">
+        <div id="step1-bar" class="h-1.5 flex-1 rounded-full bg-yellow-400 transition-all"></div>
+        <div id="step2-bar" class="h-1.5 flex-1 rounded-full bg-neutral-300 transition-all dark:bg-neutral-600"></div>
+      </div>
 
-          <!-- Error banner -->
-          <div id="signup-error" class="mb-4 hidden rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-800/50 dark:bg-red-950/30 dark:text-red-400" role="alert">
-            <span id="signup-error-msg">Please fill in all required fields.</span>
-          </div>
+      <div class="rounded-xl border border-neutral-200 bg-neutral-100 shadow-xs dark:border-neutral-700 dark:bg-neutral-800">
+        <div class="overflow-y-auto p-4 sm:p-7">
 
-          <!-- STEP 1: Personal info -->
+          {/* Step 1 — Personal info */}
           <form id="signup-step1">
-            <div class="space-y-4">
-              <!-- Full Name -->
+            <div class="mb-6 text-center">
+              <div class="block text-xl font-bold text-neutral-800 dark:text-neutral-200" role="heading" aria-level="2">
+                Your details
+              </div>
+              <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">Tell us a bit about yourself</p>
+            </div>
+
+            <div class="grid gap-y-4">
+              {/* Name row */}
               <div class="grid grid-cols-2 gap-4">
                 <div>
-                  <label for="first-name" class="mb-1.5 block text-sm font-semibold text-neutral-700 dark:text-neutral-300">First name</label>
+                  <label for="first-name" class="mb-2 block text-sm text-neutral-800 dark:text-neutral-200">First name</label>
                   <input type="text" id="first-name" name="firstName" placeholder="Kofi" autocomplete="given-name"
-                    class="block w-full rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder-neutral-500 dark:focus:bg-neutral-800/70" />
-                  <p class="field-error mt-1 hidden text-xs text-red-500">Required</p>
+                    class="block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 focus:border-neutral-200 focus:ring-3 focus:ring-neutral-400 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:focus:ring-1" />
+                  <p id="fname-err" class="mt-2 hidden text-xs text-red-600">Required</p>
                 </div>
                 <div>
-                  <label for="last-name" class="mb-1.5 block text-sm font-semibold text-neutral-700 dark:text-neutral-300">Last name</label>
+                  <label for="last-name" class="mb-2 block text-sm text-neutral-800 dark:text-neutral-200">Last name</label>
                   <input type="text" id="last-name" name="lastName" placeholder="Agyeman" autocomplete="family-name"
-                    class="block w-full rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder-neutral-500 dark:focus:bg-neutral-800/70" />
-                  <p class="field-error mt-1 hidden text-xs text-red-500">Required</p>
+                    class="block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 focus:border-neutral-200 focus:ring-3 focus:ring-neutral-400 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:focus:ring-1" />
+                  <p id="lname-err" class="mt-2 hidden text-xs text-red-600">Required</p>
                 </div>
               </div>
 
-              <!-- Email -->
+              {/* Email */}
               <div>
-                <label for="signup-email" class="mb-1.5 block text-sm font-semibold text-neutral-700 dark:text-neutral-300">Email address</label>
+                <label for="signup-email" class="mb-2 block text-sm text-neutral-800 dark:text-neutral-200">Email address</label>
                 <input type="email" id="signup-email" name="email" placeholder="you@example.com" autocomplete="email"
-                  class="block w-full rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder-neutral-500 dark:focus:bg-neutral-800/70" />
-                <p id="email-err" class="mt-1 hidden text-xs text-red-500">Enter a valid email address.</p>
+                  class="block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 focus:border-neutral-200 focus:ring-3 focus:ring-neutral-400 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:focus:ring-1" />
+                <p id="email-err" class="mt-2 hidden text-xs text-red-600">Please enter a valid email address.</p>
               </div>
 
-              <!-- Phone -->
+              {/* Phone */}
               <div>
-                <label for="signup-phone" class="mb-1.5 block text-sm font-semibold text-neutral-700 dark:text-neutral-300">Phone number</label>
+                <label for="signup-phone" class="mb-2 block text-sm text-neutral-800 dark:text-neutral-200">Phone number</label>
                 <div class="flex gap-2">
-                  <select id="phone-prefix" class="w-28 rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-3 text-sm text-neutral-700 transition focus:border-blue-500 focus:bg-white focus:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100">
+                  <select id="phone-prefix"
+                    class="w-28 shrink-0 rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-3 text-sm text-neutral-700 focus:border-neutral-200 focus:ring-3 focus:ring-neutral-400 focus:outline-hidden dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300">
                     <option value="+233">🇬🇭 +233</option>
                     <option value="+234">🇳🇬 +234</option>
                     <option value="+254">🇰🇪 +254</option>
@@ -85,91 +82,106 @@ const ogTitle = 'Create Account | AlphaPay';
                     <option value="+225">🇨🇮 +225</option>
                   </select>
                   <input type="tel" id="signup-phone" name="phone" placeholder="024 000 0000"
-                    class="block w-full rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder-neutral-500 dark:focus:bg-neutral-800/70" />
+                    class="block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 focus:border-neutral-200 focus:ring-3 focus:ring-neutral-400 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:focus:ring-1" />
                 </div>
-                <p id="phone-err" class="mt-1 hidden text-xs text-red-500">Enter a valid phone number.</p>
+                <p id="phone-err" class="mt-2 hidden text-xs text-red-600">Please enter a phone number.</p>
               </div>
 
-              <!-- Next button -->
               <button type="submit"
-                class="w-full rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/30 transition-all duration-300 hover:from-blue-500 hover:to-indigo-500 hover:shadow-blue-500/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-[0.98]">
+                class="inline-flex w-full items-center justify-center gap-x-2 rounded-lg border border-transparent bg-yellow-400 px-4 py-3 text-sm font-bold text-neutral-700 transition duration-300 hover:bg-yellow-500 focus-visible:ring-3 outline-hidden ring-zinc-500 dark:focus:outline-hidden 2xl:text-base">
                 Continue →
               </button>
             </div>
           </form>
 
-          <!-- STEP 2: Security & Terms -->
+          {/* Step 2 — Security */}
           <form id="signup-step2" class="hidden">
-            <div class="space-y-4">
-              <!-- Password -->
+            <div class="mb-6 text-center">
+              <div class="block text-xl font-bold text-neutral-800 dark:text-neutral-200" role="heading" aria-level="2">
+                Secure your account
+              </div>
+              <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">Choose a strong password</p>
+            </div>
+
+            <div class="grid gap-y-4">
+              {/* Password */}
               <div>
-                <label for="create-password" class="mb-1.5 block text-sm font-semibold text-neutral-700 dark:text-neutral-300">Create password</label>
+                <label for="create-password" class="mb-2 block text-sm text-neutral-800 dark:text-neutral-200">Create password</label>
                 <div class="relative">
                   <input type="password" id="create-password" name="password" placeholder="••••••••" autocomplete="new-password"
-                    class="block w-full rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-3 pr-11 text-sm text-neutral-900 placeholder-neutral-400 transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder-neutral-500 dark:focus:bg-neutral-800/70" />
-                  <button type="button" id="toggle-pw" class="absolute inset-y-0 right-3 flex items-center text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300" tabindex="-1">
-                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                  </button>
+                    class="block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 focus:border-neutral-200 focus:ring-3 focus:ring-neutral-400 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:focus:ring-1" />
                 </div>
-                <!-- Strength bar -->
+                {/* Strength bar */}
                 <div class="mt-2 flex gap-1">
-                  <div id="bar1" class="h-1 flex-1 rounded-full bg-neutral-200 transition-all dark:bg-neutral-700"></div>
-                  <div id="bar2" class="h-1 flex-1 rounded-full bg-neutral-200 transition-all dark:bg-neutral-700"></div>
-                  <div id="bar3" class="h-1 flex-1 rounded-full bg-neutral-200 transition-all dark:bg-neutral-700"></div>
-                  <div id="bar4" class="h-1 flex-1 rounded-full bg-neutral-200 transition-all dark:bg-neutral-700"></div>
+                  <div id="bar1" class="h-1 flex-1 rounded-full bg-neutral-200 transition-all dark:bg-neutral-600"></div>
+                  <div id="bar2" class="h-1 flex-1 rounded-full bg-neutral-200 transition-all dark:bg-neutral-600"></div>
+                  <div id="bar3" class="h-1 flex-1 rounded-full bg-neutral-200 transition-all dark:bg-neutral-600"></div>
+                  <div id="bar4" class="h-1 flex-1 rounded-full bg-neutral-200 transition-all dark:bg-neutral-600"></div>
                 </div>
                 <p id="strength-label" class="mt-1 text-xs text-neutral-400"></p>
-                <p id="pw-err" class="mt-1 hidden text-xs text-red-500">Password must be at least 8 characters.</p>
+                <p id="pw-err" class="mt-2 hidden text-xs text-red-600">Password must be at least 8 characters.</p>
               </div>
 
-              <!-- Confirm Password -->
+              {/* Confirm password */}
               <div>
-                <label for="confirm-password" class="mb-1.5 block text-sm font-semibold text-neutral-700 dark:text-neutral-300">Confirm password</label>
+                <label for="confirm-password" class="mb-2 block text-sm text-neutral-800 dark:text-neutral-200">Confirm password</label>
                 <input type="password" id="confirm-password" name="confirmPassword" placeholder="••••••••" autocomplete="new-password"
-                  class="block w-full rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder-neutral-500 dark:focus:bg-neutral-800/70" />
-                <p id="confirm-err" class="mt-1 hidden text-xs text-red-500">Passwords do not match.</p>
+                  class="block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 focus:border-neutral-200 focus:ring-3 focus:ring-neutral-400 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:focus:ring-1" />
+                <p id="confirm-err" class="mt-2 hidden text-xs text-red-600">Passwords do not match.</p>
               </div>
 
-              <!-- Account type -->
+              {/* Account type */}
               <div>
-                <label class="mb-1.5 block text-sm font-semibold text-neutral-700 dark:text-neutral-300">Account type</label>
+                <label class="mb-2 block text-sm text-neutral-800 dark:text-neutral-200">Account type</label>
                 <div class="grid grid-cols-2 gap-3">
-                  <label for="type-personal" class="account-type-card flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border-2 border-blue-500 bg-blue-50/50 p-3 text-center transition dark:border-blue-500/60 dark:bg-blue-950/20">
+                  <label for="type-personal" class="account-card flex cursor-pointer items-center gap-3 rounded-lg border-2 border-yellow-400 bg-yellow-50 p-3 transition dark:border-yellow-500/60 dark:bg-yellow-900/10">
                     <input type="radio" id="type-personal" name="accountType" value="personal" checked class="sr-only" />
-                    <span class="text-xl">👤</span>
-                    <span class="text-xs font-semibold text-neutral-700 dark:text-neutral-300">Personal</span>
-                    <span class="text-[10px] text-neutral-500 dark:text-neutral-500">For individuals</span>
+                    <span class="text-lg">👤</span>
+                    <div>
+                      <p class="text-xs font-bold text-neutral-800 dark:text-neutral-200">Personal</p>
+                      <p class="text-[10px] text-neutral-500 dark:text-neutral-400">Individuals</p>
+                    </div>
                   </label>
-                  <label for="type-business" class="account-type-card flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border-2 border-neutral-200 p-3 text-center transition hover:border-blue-300 dark:border-neutral-700 dark:hover:border-blue-500/50">
+                  <label for="type-business" class="account-card flex cursor-pointer items-center gap-3 rounded-lg border-2 border-neutral-200 p-3 transition hover:border-yellow-300 dark:border-neutral-600 dark:hover:border-yellow-600">
                     <input type="radio" id="type-business" name="accountType" value="business" class="sr-only" />
-                    <span class="text-xl">🏢</span>
-                    <span class="text-xs font-semibold text-neutral-700 dark:text-neutral-300">Business</span>
-                    <span class="text-[10px] text-neutral-500 dark:text-neutral-500">For merchants</span>
+                    <span class="text-lg">🏢</span>
+                    <div>
+                      <p class="text-xs font-bold text-neutral-800 dark:text-neutral-200">Business</p>
+                      <p class="text-[10px] text-neutral-500 dark:text-neutral-400">Merchants</p>
+                    </div>
                   </label>
                 </div>
               </div>
 
-              <!-- Terms -->
-              <div class="flex items-start gap-x-3">
-                <input type="checkbox" id="terms-agree" name="terms"
-                  class="mt-0.5 h-4 w-4 rounded border-neutral-300 accent-blue-600 dark:border-neutral-600" />
-                <label for="terms-agree" class="text-sm text-neutral-600 dark:text-neutral-400">
-                  I agree to the <a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-400">Terms of Service</a> and <a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-400">Privacy Policy</a>
-                </label>
+              {/* Terms */}
+              <div class="flex items-center">
+                <div class="flex">
+                  <input id="terms-agree" name="terms" type="checkbox"
+                    class="pointer-events-none mt-0.5 shrink-0 rounded-sm border-neutral-200 text-neutral-600 focus:ring-yellow-400 dark:border-neutral-700 dark:bg-neutral-800 dark:checked:border-yellow-400 dark:checked:bg-yellow-400 dark:focus:ring-offset-neutral-800" />
+                </div>
+                <div class="ms-3">
+                  <label for="terms-agree" class="text-sm text-neutral-800 dark:text-neutral-200">
+                    I accept the{' '}
+                    <a href="#" class="font-medium text-orange-400 decoration-2 hover:underline dark:text-orange-400">Terms and Conditions</a>
+                  </label>
+                </div>
               </div>
-              <p id="terms-err" class="hidden text-xs text-red-500">You must accept the terms to continue.</p>
+              <p id="terms-err" class="hidden text-xs text-red-600">You must accept the terms to continue.</p>
 
-              <!-- Buttons -->
+              {/* Buttons */}
               <div class="flex gap-3">
                 <button type="button" id="back-btn"
-                  class="flex-1 rounded-xl border border-neutral-300 px-5 py-3.5 text-sm font-semibold text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800">
+                  class="inline-flex flex-1 items-center justify-center gap-x-2 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm font-medium text-neutral-700 transition duration-300 hover:bg-neutral-200 focus-visible:ring-3 outline-hidden dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700">
                   ← Back
                 </button>
                 <button type="submit" id="create-btn"
-                  class="flex-[2] rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/30 transition-all duration-300 hover:from-blue-500 hover:to-indigo-500 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-60">
+                  class="inline-flex flex-[2] items-center justify-center gap-x-2 rounded-lg border border-transparent bg-yellow-400 px-4 py-3 text-sm font-bold text-neutral-700 transition duration-300 hover:bg-yellow-500 focus-visible:ring-3 outline-hidden ring-zinc-500 dark:focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 2xl:text-base">
                   <span id="create-text">Create account</span>
-                  <span id="create-loading" class="hidden">
-                    <svg class="inline-block h-4 w-4 animate-spin mr-1" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
+                  <span id="create-loading" class="hidden inline-flex items-center gap-x-1">
+                    <svg class="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                    </svg>
                     Creating…
                   </span>
                 </button>
@@ -177,174 +189,116 @@ const ogTitle = 'Create Account | AlphaPay';
             </div>
           </form>
 
-          <!-- Sign in link -->
-          <p class="mt-6 text-center text-sm text-neutral-500 dark:text-neutral-400">
-            Already have an account?
-            <a href="/signin" class="ml-1 font-semibold text-blue-600 hover:text-blue-700 hover:underline dark:text-blue-400">Sign in</a>
-          </p>
         </div>
-      </div>
-
-      <!-- Benefits strip -->
-      <div class="mt-4 flex items-center justify-center gap-6 text-xs text-neutral-500 dark:text-neutral-400">
-        <span class="flex items-center gap-1">✅ Free to join</span>
-        <span class="flex items-center gap-1">🔒 Secure & encrypted</span>
-        <span class="flex items-center gap-1">⚡ Instant setup</span>
       </div>
     </div>
   </section>
 </MainLayout>
 
 <script>
-  // ── Step management ───────────────────────────────────────────────────────────
   const step1Form = document.getElementById('signup-step1') as HTMLFormElement;
   const step2Form = document.getElementById('signup-step2') as HTMLFormElement;
-  const step1Dot = document.getElementById('step1-dot')!;
-  const step2Dot = document.getElementById('step2-dot')!;
+  const step1Bar = document.getElementById('step1-bar')!;
+  const step2Bar = document.getElementById('step2-bar')!;
   const backBtn = document.getElementById('back-btn')!;
-  const errorBanner = document.getElementById('signup-error')!;
-
-  // Stored step-1 data
   let userData: Record<string, string> = {};
 
-  // ── Step 1 Submit ─────────────────────────────────────────────────────────────
+  // ── Step 1 submit ─────────────────────────────────────────────────────────────
   step1Form.addEventListener('submit', (e) => {
     e.preventDefault();
-    errorBanner.classList.add('hidden');
-    let valid = true;
-
     const firstName = (document.getElementById('first-name') as HTMLInputElement).value.trim();
     const lastName = (document.getElementById('last-name') as HTMLInputElement).value.trim();
     const email = (document.getElementById('signup-email') as HTMLInputElement).value.trim();
     const phone = (document.getElementById('signup-phone') as HTMLInputElement).value.trim();
     const prefix = (document.getElementById('phone-prefix') as HTMLSelectElement).value;
+    let valid = true;
 
-    // Simple validation
-    if (!firstName || !lastName) {
-      step1Form.querySelectorAll('.field-error').forEach(el => el.classList.remove('hidden'));
-      valid = false;
-    } else {
-      step1Form.querySelectorAll('.field-error').forEach(el => el.classList.add('hidden'));
-    }
+    document.getElementById('fname-err')!.classList.toggle('hidden', !!firstName);
+    document.getElementById('lname-err')!.classList.toggle('hidden', !!lastName);
+    if (!firstName || !lastName) valid = false;
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      document.getElementById('email-err')!.classList.remove('hidden');
-      valid = false;
-    } else {
-      document.getElementById('email-err')!.classList.add('hidden');
-    }
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    document.getElementById('email-err')!.classList.toggle('hidden', emailOk);
+    if (!emailOk) valid = false;
 
-    if (!phone) {
-      document.getElementById('phone-err')!.classList.remove('hidden');
-      valid = false;
-    } else {
-      document.getElementById('phone-err')!.classList.add('hidden');
-    }
+    document.getElementById('phone-err')!.classList.toggle('hidden', !!phone);
+    if (!phone) valid = false;
 
     if (!valid) return;
 
     userData = { firstName, lastName, email, phone: prefix + phone };
-
-    // Advance to step 2
     step1Form.classList.add('hidden');
     step2Form.classList.remove('hidden');
-    step1Dot.classList.remove('bg-blue-500');
-    step1Dot.classList.add('bg-blue-300');
-    step2Dot.classList.remove('bg-neutral-200', 'dark:bg-neutral-700');
-    step2Dot.classList.add('bg-blue-500');
+    step1Bar.classList.replace('bg-yellow-400', 'bg-yellow-300');
+    step2Bar.classList.replace('bg-neutral-300', 'bg-yellow-400');
+    step2Bar.classList.replace('dark:bg-neutral-600', 'dark:bg-yellow-500');
   });
 
-  // ── Back button ────────────────────────────────────────────────────────────────
+  // ── Back button ───────────────────────────────────────────────────────────────
   backBtn.addEventListener('click', () => {
     step2Form.classList.add('hidden');
     step1Form.classList.remove('hidden');
-    step1Dot.classList.add('bg-blue-500');
-    step1Dot.classList.remove('bg-blue-300');
-    step2Dot.classList.remove('bg-blue-500');
-    step2Dot.classList.add('bg-neutral-200');
+    step1Bar.classList.replace('bg-yellow-300', 'bg-yellow-400');
+    step2Bar.classList.replace('bg-yellow-400', 'bg-neutral-300');
+    step2Bar.classList.replace('dark:bg-yellow-500', 'dark:bg-neutral-600');
   });
 
   // ── Account type radio cards ──────────────────────────────────────────────────
-  const radioInputs = document.querySelectorAll('input[name="accountType"]');
-  const typeCards = document.querySelectorAll('.account-type-card');
-
-  radioInputs.forEach((input, i) => {
+  document.querySelectorAll('input[name="accountType"]').forEach((input, i) => {
     input.addEventListener('change', () => {
-      typeCards.forEach(card => {
-        card.classList.remove('border-blue-500', 'bg-blue-50/50', 'dark:border-blue-500/60', 'dark:bg-blue-950/20');
-        card.classList.add('border-neutral-200', 'dark:border-neutral-700');
+      document.querySelectorAll('.account-card').forEach((card, j) => {
+        const isSelected = i === j;
+        card.classList.toggle('border-yellow-400', isSelected);
+        card.classList.toggle('dark:border-yellow-500/60', isSelected);
+        card.classList.toggle('bg-yellow-50', isSelected);
+        card.classList.toggle('dark:bg-yellow-900/10', isSelected);
+        card.classList.toggle('border-neutral-200', !isSelected);
+        card.classList.toggle('dark:border-neutral-600', !isSelected);
       });
-      typeCards[i].classList.add('border-blue-500', 'bg-blue-50/50', 'dark:border-blue-500/60', 'dark:bg-blue-950/20');
-      typeCards[i].classList.remove('border-neutral-200', 'dark:border-neutral-700');
     });
   });
 
-  // ── Password visibility toggle ────────────────────────────────────────────────
-  document.getElementById('toggle-pw')?.addEventListener('click', () => {
-    const pw = document.getElementById('create-password') as HTMLInputElement;
-    pw.type = pw.type === 'password' ? 'text' : 'password';
-  });
-
-  // ── Password strength meter ───────────────────────────────────────────────────
+  // ── Password strength ─────────────────────────────────────────────────────────
   const pwInput = document.getElementById('create-password') as HTMLInputElement;
   const bars = ['bar1','bar2','bar3','bar4'].map(id => document.getElementById(id)!);
   const strengthLabel = document.getElementById('strength-label')!;
-  const strengthColors = ['bg-red-400', 'bg-orange-400', 'bg-yellow-400', 'bg-green-500'];
-  const strengthLabels = ['Too weak', 'Weak', 'Fair', 'Strong'];
-
-  function calcStrength(pw: string): number {
-    let score = 0;
-    if (pw.length >= 8) score++;
-    if (pw.length >= 12) score++;
-    if (/[A-Z]/.test(pw) && /[a-z]/.test(pw)) score++;
-    if (/\d/.test(pw) && /[^A-Za-z0-9]/.test(pw)) score++;
-    return Math.min(score, 4);
-  }
 
   pwInput.addEventListener('input', () => {
-    const s = calcStrength(pwInput.value);
-    bars.forEach((bar, i) => {
-      bar.className = `h-1 flex-1 rounded-full transition-all ${i < s ? strengthColors[s - 1] : 'bg-neutral-200 dark:bg-neutral-700'}`;
+    const v = pwInput.value;
+    let s = 0;
+    if (v.length >= 8) s++;
+    if (v.length >= 12) s++;
+    if (/[A-Z]/.test(v) && /[a-z]/.test(v)) s++;
+    if (/\d/.test(v) && /[^A-Za-z0-9]/.test(v)) s++;
+    s = Math.min(s, 4);
+    const colors = ['bg-red-400','bg-orange-400','bg-yellow-400','bg-yellow-500'];
+    const labels = ['Too weak','Weak','Fair','Strong'];
+    bars.forEach((b, i) => {
+      b.className = `h-1 flex-1 rounded-full transition-all ${i < s ? colors[s-1] : 'bg-neutral-200 dark:bg-neutral-600'}`;
     });
-    strengthLabel.textContent = pwInput.value ? strengthLabels[Math.max(0, s - 1)] : '';
+    strengthLabel.textContent = v ? labels[Math.max(0, s-1)] : '';
   });
 
-  // ── Step 2 Submit ─────────────────────────────────────────────────────────────
+  // ── Step 2 submit ─────────────────────────────────────────────────────────────
   step2Form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    errorBanner.classList.add('hidden');
-
     const password = pwInput.value;
-    const confirmPassword = (document.getElementById('confirm-password') as HTMLInputElement).value;
-    const termsChecked = (document.getElementById('terms-agree') as HTMLInputElement).checked;
+    const confirm = (document.getElementById('confirm-password') as HTMLInputElement).value;
+    const terms = (document.getElementById('terms-agree') as HTMLInputElement).checked;
     const accountType = (document.querySelector('input[name="accountType"]:checked') as HTMLInputElement)?.value;
-
     let valid = true;
 
-    if (password.length < 8) {
-      document.getElementById('pw-err')!.classList.remove('hidden');
-      valid = false;
-    } else {
-      document.getElementById('pw-err')!.classList.add('hidden');
-    }
+    document.getElementById('pw-err')!.classList.toggle('hidden', password.length >= 8);
+    if (password.length < 8) valid = false;
 
-    if (password !== confirmPassword) {
-      document.getElementById('confirm-err')!.classList.remove('hidden');
-      valid = false;
-    } else {
-      document.getElementById('confirm-err')!.classList.add('hidden');
-    }
+    document.getElementById('confirm-err')!.classList.toggle('hidden', password === confirm);
+    if (password !== confirm) valid = false;
 
-    if (!termsChecked) {
-      document.getElementById('terms-err')!.classList.remove('hidden');
-      valid = false;
-    } else {
-      document.getElementById('terms-err')!.classList.add('hidden');
-    }
+    document.getElementById('terms-err')!.classList.toggle('hidden', terms);
+    if (!terms) valid = false;
 
     if (!valid) return;
 
-    // Show loading
     const createText = document.getElementById('create-text')!;
     const createLoading = document.getElementById('create-loading')!;
     const createBtn = document.getElementById('create-btn') as HTMLButtonElement;
@@ -354,17 +308,15 @@ const ogTitle = 'Create Account | AlphaPay';
 
     await new Promise(r => setTimeout(r, 1500));
 
-    // Mock: save user to localStorage
-    const newUser = {
+    localStorage.setItem('alphapay_user', JSON.stringify({
       name: `${userData.firstName} ${userData.lastName}`,
       email: userData.email,
       phone: userData.phone,
       accountType,
       balance: 'GH₵ 0.00',
-      loginTime: new Date().toISOString(),
       isNew: true,
-    };
-    localStorage.setItem('alphapay_user', JSON.stringify(newUser));
+      loginTime: new Date().toISOString(),
+    }));
 
     window.location.href = '/dashboard';
   });
