@@ -6,7 +6,7 @@ import starlight from '@astrojs/starlight';
 import mdx from '@astrojs/mdx';
 
 export default defineConfig({
-  site: '#!',
+  site: 'https://alphapay.africa',
   image: {
     domains: ['images.unsplash.com'],
   },
@@ -32,7 +32,7 @@ export default defineConfig({
       },
     }),
     starlight({
-      title: 'ScrewFast Docs',
+      title: 'AlphaPay Docs',
       locales: {
         root: {
           label: 'English',
@@ -78,7 +78,7 @@ export default defineConfig({
         {
           icon: 'github',
           label: 'GitHub',
-          href: '#!',
+          href: 'https://github.com/Mustapha-Haadi/internship-cloud-solution-design',
         },
       ],
       disable404Route: true,
@@ -96,14 +96,14 @@ export default defineConfig({
           tag: 'meta',
           attrs: {
             property: 'og:image',
-            content: 'https://screwfast.uk' + '/social.webp',
+            content: 'https://alphapay.africa' + '/social.webp',
           },
         },
         {
           tag: 'meta',
           attrs: {
             property: 'twitter:image',
-            content: 'https://screwfast.uk' + '/social.webp',
+            content: 'https://alphapay.africa' + '/social.webp',
           },
         },
       ],

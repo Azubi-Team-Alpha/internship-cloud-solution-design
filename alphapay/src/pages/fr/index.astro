@@ -32,105 +32,233 @@ const avatarSrcs: Array<string> = [
 <MainLayout lang="fr">
   <AnnouncementBanner
     btnId="dismiss-button"
-    btnTitle="Découvrez ScrewFast sur GitHub"
-    url="#!"
+    btnTitle="Découvrez la conception de notre solution cloud sur GitHub"
+    url="https://github.com/Mustapha-Haadi/internship-cloud-solution-design"
   />
 
   <HeroSection
-    title=`Équipez vos projets avec <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>`
-    subTitle="Outils matériels de haute qualité et services de construction experts pour tous les besoins en projet."
-    primaryBtn="Commencez à explorer"
-    primaryBtnURL={getRelativeLocaleUrl('fr', 'products')}
-    secondaryBtn="Contacter l'équipe commerciale"
-    secondaryBtnURL={getRelativeLocaleUrl('fr', 'contact')}
+    title=`Déplacez de l'argent librement <br /><span class="text-blue-600 dark:text-blue-500">à travers l'Afrique</span><br />et au-delà`
+    subTitle="Envoyez, recevez et gérez de l'argent instantanément. Zéro frais sur les transferts locaux. Conçu pour les Africains, approuvé dans le monde entier."
+    primaryBtn="Commencer maintenant"
+    primaryBtnURL="#"
+    secondaryBtn="Pour les entreprises"
+    secondaryBtnURL="#"
     withReview={true}
     avatars={avatarSrcs}
-    rating=`<span class="font-bold">4.8</span> / 5`
-    starCount={4}
-    reviews=`À partir de plus de <span class="font-bold">12,8k</span> avis`
-    src={heroImage}
-    alt="Pile de boîtes de produits ScrewFast contenant des outils matériels assortis"
-  />
+    rating=`4.9`
+    starCount={5}
+    reviews=`Approuvé par plus de 500k+ utilisateurs`
+  >
+    {/* Carte de téléphone interactive en français */}
+    <div class="w-full max-w-sm rounded-[24px] bg-neutral-50 dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 p-6 shadow-2xl transition duration-300 hover:shadow-blue-500/10 hover:border-blue-500/20 text-neutral-800 dark:text-neutral-100">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">Solde total</span>
+        <span class="text-lg cursor-pointer hover:scale-115 transition">🔔</span>
+      </div>
+      <div class="text-3xl font-extrabold text-neutral-900 dark:text-neutral-100">GH₵ 4,820.00</div>
+      <div class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">≈ $320 USD &nbsp;·&nbsp; <span class="text-green-600 dark:text-green-500 font-medium">+12.4% ce mois-ci</span></div>
+      
+      <div class="border-t border-neutral-200 dark:border-neutral-800 my-4"></div>
+      
+      <div class="flex justify-around">
+        <div class="flex flex-col items-center gap-1 cursor-pointer group">
+          <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 font-bold text-lg group-hover:scale-105 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/60 transition">↑</div>
+          <span class="text-[11px] font-medium text-neutral-600 dark:text-neutral-400">Envoyer</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 cursor-pointer group">
+          <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 font-bold text-lg group-hover:scale-105 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/60 transition">↓</div>
+          <span class="text-[11px] font-medium text-neutral-600 dark:text-neutral-400">Recevoir</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 cursor-pointer group">
+          <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 font-bold text-lg group-hover:scale-105 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/60 transition">⊕</div>
+          <span class="text-[11px] font-medium text-neutral-600 dark:text-neutral-400">Recharger</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 cursor-pointer group">
+          <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 font-bold text-lg group-hover:scale-105 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/60 transition">⋯</div>
+          <span class="text-[11px] font-medium text-neutral-600 dark:text-neutral-400">Plus</span>
+        </div>
+      </div>
+      
+      <div class="border-t border-neutral-200 dark:border-neutral-800 my-4"></div>
+      
+      <div class="text-[11px] font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 mb-2">Transactions récentes</div>
+      
+      <div class="flex justify-between items-center py-2 hover:bg-neutral-100/50 dark:hover:bg-neutral-800/30 rounded-xl px-2 transition">
+        <div class="flex items-center gap-3">
+          <div class="flex h-9 w-9 items-center justify-center rounded-full font-bold text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400">KA</div>
+          <div class="flex flex-col">
+            <span class="text-sm font-semibold text-neutral-800 dark:text-neutral-200">Kofi Agyeman</span>
+            <span class="text-[10px] text-neutral-500 dark:text-neutral-400">Aujourd'hui, 10:24</span>
+          </div>
+        </div>
+        <span class="text-sm font-bold text-green-600 dark:text-green-500">+GH₵ 500</span>
+      </div>
+      
+      <div class="flex justify-between items-center py-2 hover:bg-neutral-100/50 dark:hover:bg-neutral-800/30 rounded-xl px-2 transition">
+        <div class="flex items-center gap-3">
+          <div class="flex h-9 w-9 items-center justify-center rounded-full font-bold text-xs bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-400">AB</div>
+          <div class="flex flex-col">
+            <span class="text-sm font-semibold text-neutral-800 dark:text-neutral-200">Ama Boateng</span>
+            <span class="text-[10px] text-neutral-500 dark:text-neutral-400">Hier, 15:11</span>
+          </div>
+        </div>
+        <span class="text-sm font-bold text-red-600 dark:text-red-500">-GH₵ 150</span>
+      </div>
+      
+      <div class="flex justify-between items-center py-2 hover:bg-neutral-100/50 dark:hover:bg-neutral-800/30 rounded-xl px-2 transition">
+        <div class="flex items-center gap-3">
+          <div class="flex h-9 w-9 items-center justify-center rounded-full font-bold text-xs bg-yellow-100 dark:bg-yellow-900/40 text-yellow-600 dark:text-yellow-400">MM</div>
+          <div class="flex flex-col">
+            <span class="text-sm font-semibold text-neutral-800 dark:text-neutral-200">MTN Mobile Money</span>
+            <span class="text-[10px] text-neutral-500 dark:text-neutral-400">Lundi, 09:00</span>
+          </div>
+        </div>
+        <span class="text-sm font-bold text-green-600 dark:text-green-500">+GH₵ 1 200</span>
+      </div>
+    </div>
+  </HeroSection>
 
   <ClientsSection
-    title="Faites confiance aux leaders de l'industrie"
-    subTitle="Découvrez la fiabilité choisie par les géants de l'industrie."
+    title="Opérer à l'échelle mondiale, payer localement"
+    subTitle="Déplacez de l'argent de manière transparente grâce à des intégrations de confiance avec les principaux agents de la région."
     partners={partnersData}
   />
 
   <FeaturesGeneral
-    title="Répondre aux exigences de l'industrie"
-    subTitle="Chez ScrewFast, nous relevons les défis uniques rencontrés dans les secteurs du matériel et de la construction. Des outils de pointe aux services experts, nous sommes déterminés à vous aider à surmonter les obstacles et à atteindre vos objectifs."
+    title="Tout ce dont vous avez besoin pour transférer de l'argent"
+    subTitle="Une plateforme unique pour les transferts personnels, les paiements professionnels et les transactions transfrontalières en Afrique."
     src={featureImage}
-    alt="Produits ScrewFast dans des boîtes flottantes"
+    alt="Aperçu du portail de transactions sécurisées AlphaPay"
     features={features}
   />
 
   <FeaturesNavs
-    title=`Personnalisez les offres de <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span> pour répondre parfaitement à vos besoins en matériel et en construction.`
+    title=`Profitez d'un confort inédit grâce aux fonctionnalités avancées d' <span class="text-blue-600 dark:text-blue-500">AlphaPay</span>.`
     tabs={[
       {
-        heading: 'Outils de pointe',
+        heading: 'Portefeuilles de paiement mobile',
         content:
-          "Optimisez vos projets avec les outils de pointe de ScrewFast. Faites l'expérience d'une efficacité accrue dans la gestion de la construction avec nos solutions automatisées sophistiquées.",
-        svg: 'tools',
+          "Envoyez de l'argent directement vers les portefeuilles MTN, Telecel/Vodafone Cash, AirtelTigo, M-Pesa et Orange Money instantanément dans plus de 15 pays.",
+        svg: 'mobile',
         src: tools,
-        alt: "Équipement lourd jaune et noir sur un champ d'herbe brune",
+        alt: "Illustration de l'interface de transaction sur mobile",
         first: true,
       },
       {
-        heading: 'Tableaux de bord intuitifs',
+        heading: 'Tableau de bord d\'entreprise intuitif',
         content:
-          'Naviguez facilement avec les tableaux de bord intuitifs de ScrewFast. Configurez et supervisez vos projets de manière transparente, avec des interfaces conviviales conçues pour une gestion efficace des flux de travail rapide et efficace.',
+          "Gérez vos finances en toute simplicité. Paiements de masse, collectes, API de passerelle de paiement et analyses marchandes conçues pour les entreprises en pleine croissance.",
         svg: 'dashboard',
         src: dashboard,
-        alt: "Capture d'écran ou représentation graphique du tableau de bord intuitif",
+        alt: "Tableau de bord d'analyses marchandes AlphaPay",
         second: true,
       },
       {
-        heading: 'Fonctionnalités robustes',
+        heading: 'Sécurité cloud robuste',
         content:
-          'Minimisez la complexité, maximisez la productivité. Les fonctionnalités robustes de ScrewFast sont conçues pour rationaliser votre processus de construction, offrant des résultats qui se distinguent par leur excellence.',
-        svg: 'house',
+          "Soyez tranquille en sachant que vos transferts sont sécurisés. Déployé sur des serveurs AWS hautement disponibles (EC2 + ALB) avec CloudFront CDN et cryptage SSL.",
+        svg: 'lock',
         src: construction,
-        alt: "Structure métallique grise d'un bâtiment près d'une grue à tour pendant la journée",
+        alt: "Vue conceptuelle de l'infrastructure de serveur mondial sécurisée",
       },
     ]}
   />
 
+  <!-- Operating Countries grid (French) -->
+  <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full border-t border-neutral-200 dark:border-neutral-700">
+    <div class="mx-auto mb-8 w-full space-y-1 text-center sm:w-1/2 lg:w-1/3">
+      <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-500">Nous opérons dans</span>
+      <h2 class="text-2xl leading-tight font-bold text-neutral-800 sm:text-3xl dark:text-neutral-200">
+        Envoi à travers l'Afrique et au-delà
+      </h2>
+    </div>
+    <div class="flex flex-wrap justify-center gap-3">
+      {["🇬🇭 Ghana", "🇳🇬 Nigeria", "🇰🇪 Kenya", "🇺🇬 Uganda", "🇷🇼 Rwanda", "🇿🇦 Afrique du Sud", "🇹🇿 Tanzanie", "🇸🇳 Sénégal", "🇨🇮 Côte d'Ivoire", "🌍 + plus"].map((country) => (
+        <span class="px-5 py-2.5 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 rounded-full text-sm font-semibold text-neutral-800 dark:text-neutral-200 shadow-xs hover:border-blue-500 dark:hover:border-blue-500 hover:bg-blue-50/20 transition cursor-pointer">
+          {country}
+        </span>
+      ))}
+    </div>
+  </section>
+
+  <!-- About Section (French) -->
+  <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full border-t border-neutral-200 dark:border-neutral-700" id="about">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-500">À propos d'AlphaPay</span>
+        <h2 class="text-3xl font-extrabold tracking-tight text-neutral-800 sm:text-4xl dark:text-neutral-200 mt-2">
+          Construit par des Africains, <br/>pour l'Afrique
+        </h2>
+        <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
+          AlphaPay a été construit par l'<strong>Équipe Alpha</strong> dans le cadre du programme de stage Azubi Africa — Projet 1 : Conception et déploiement de solutions cloud de bout en bout.
+        </p>
+        <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
+          La plateforme est hébergée sur <strong>Amazon EC2</strong>, distribuée via un <strong>Application Load Balancer</strong>, sécurisée avec <strong>ACM SSL</strong>, livrée via le CDN <strong>Amazon CloudFront</strong> et entièrement déployée à l'aide d'infrastructure-as-code avec <strong>Terraform</strong>.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-6">
+          {["AWS EC2", "ALB", "CloudFront", "S3", "ACM", "Terraform", "GitHub Actions", "IAM"].map((tech) => (
+            <span class="px-3 py-1.5 bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 rounded-lg text-xs font-semibold">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+      
+      <div class="bg-neutral-50 dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 rounded-3xl p-6 shadow-xl">
+        <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-200 mb-4 flex items-center gap-2">
+          🛡️ Statut de sécurité
+        </h3>
+        {[
+          { label: "HTTPS Sécurisé", status: "Actif" },
+          { label: "Vérifications d'état ALB", status: "Sain" },
+          { label: "Réseau CDN CloudFront", status: "Activé" },
+          { label: "Pipeline CI/CD", status: "En ligne" },
+          { label: "Moindre privilège IAM", status: "Appliqué" },
+          { label: "Accès S3 à l'origine", status: "OAC Uniquement" }
+        ].map((item) => (
+          <div class="flex justify-between items-center py-3 border-b border-neutral-200 dark:border-neutral-800 last:border-0">
+            <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">{item.label}</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300">
+              ✅ {item.status}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <TestimonialsSection
-    title="Accélérez vos projets"
-    subTitle="Chez ScrewFast, nous assurons un démarrage rapide avec une configuration de compte instantanée. Découvrez la vitesse de la construction redéfinie."
+    title="Approuvé sur tout le continent"
+    subTitle="AlphaPay est devenu le choix privilégié pour des paiements fluides et des transactions transfrontalières en Afrique."
     testimonials={[
       {
         content:
-          "ScrewFast a considérablement augmenté l'efficacité de notre projet. La configuration a été instantanée et leurs temps de réponse rapides sont phénoménaux. Vraiment un changement de jeu dans le support matériel et de construction !",
+          "AlphaPay a complètement changé notre façon de payer notre équipe à distance au Kenya et au Nigeria. La configuration a été instantanée, les transferts prennent moins de 2 secondes, et l'absence de frais sur les transferts locaux nous a fait économiser une fortune.",
         author: 'Samantha Ruiz',
-        role: 'Directrice des opérations | ConstructIt Inc.',
+        role: 'Directrice des opérations | AfricaTech Group',
         avatarSrc:
           'https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
       },
     ]}
     statistics={[
       {
-        count: '70k+',
+        count: '500k+',
         description:
-          'clients équipés — des bricoleurs aux grandes entreprises de construction',
+          'utilisateurs actifs envoyant et recevant de l\'argent quotidiennement',
       },
       {
-        count: '35%',
+        count: '0%',
         description:
-          "hausse de l'efficacité des projets avec les outils et services de ScrewFast",
+          'de frais de transfert sur toutes les transactions locales',
       },
       {
-        count: '15,3%',
+        count: '15+',
         description:
-          'réduction des coûts de maintenance rapportée par des clients à long terme',
+          'pays africains pris en charge avec règlement instantané',
       },
       {
-        count: '2x',
-        description:
-          'assemblage plus rapide grâce à des solutions de fixation innovantes',
+        count: '2 sec',
+        description: 'temps de transfert moyen vers les banques et les portefeuilles',
       },
     ]}
   />
@@ -139,9 +267,41 @@ const avatarSrcs: Array<string> = [
 
   <FAQ title="Questions<br />fréquemment posées" faqs={faqs} />
 
+  <!-- Team section (French) -->
+  <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full border-t border-neutral-200 dark:border-neutral-700" id="contact">
+    <div class="mx-auto mb-8 w-full space-y-1 text-center sm:w-1/2 lg:w-1/3">
+      <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-500">L'équipe</span>
+      <h2 class="text-2xl leading-tight font-bold text-neutral-800 sm:text-3xl dark:text-neutral-200">
+        Équipe Alpha
+      </h2>
+      <p class="text-sm text-neutral-600 dark:text-neutral-400">
+        Stage Azubi Africa — Projet 1 : Conception et déploiement de solutions cloud de bout en bout
+      </p>
+    </div>
+    
+    <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+      {[
+        { name: "Mustapha Haadi", role: "Chef d'équipe", lead: true },
+        { name: "David Yirenkyi", role: "Membre", lead: false },
+        { name: "Emmanuel Yelisomah", role: "Membre", lead: false },
+        { name: "Daniel Hanson Reynolds", role: "Membre", lead: false },
+        { name: "Zakaria Adeeba", role: "Membre", lead: false },
+        { name: "Evame Cobblah", role: "Membre", lead: false }
+      ].map((member) => (
+        <div class={`flex flex-col items-center justify-center p-6 border rounded-2xl text-center shadow-xs transition duration-300 hover:shadow-lg ${member.lead ? 'bg-blue-50/50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800' : 'bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800'}`}>
+          <div class={`flex h-14 w-14 items-center justify-center rounded-full font-bold text-lg mb-3 ${member.lead ? 'bg-blue-600 text-white' : 'bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200'}`}>
+            {member.name.split(" ").map(n => n[0]).join("")}
+          </div>
+          <span class="text-sm font-semibold text-neutral-800 dark:text-neutral-200">{member.name}</span>
+          <span class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">{member.role}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <HeroSectionAlt
-    title="Construisons ensemble"
-    subTitle="ScrewFast est un modèle open source, méticuleusement conçu avec les frameworks Astro, Tailwind CSS et Preline UI."
-    url="#!"
+    title="Commencez à transférer de l'argent dès aujourd'hui"
+    subTitle="Rejoignez des milliers d'Africains qui font confiance à AlphaPay pour des transferts rapides, sécurisés et gratuits."
+    url="#"
   />
 </MainLayout>
