@@ -1,27 +1,25 @@
 const navBarLinks = [
   { name: 'Accueil', url: '/fr' },
-  { name: 'Produits', url: '/fr/products' },
-  { name: 'Services', url: '/fr/services' },
-  { name: 'Blog', url: '/fr/blog' },
+  { name: 'À propos', url: '/fr/#about' },
+  { name: 'Tableau de bord', url: '/fr/#dashboard' },
   { name: 'Contact', url: '/fr/contact' },
 ];
 
 const footerLinks = [
   {
-    section: 'Écosystème',
+    section: 'Architecture Cloud',
     links: [
-      { name: 'Documentation', url: '/fr/welcome-to-docs/' },
-      { name: 'Outils et Équipements', url: '/fr/products' },
-      { name: 'Services de Construction', url: '/fr/services' },
+      { name: 'Hébergement AWS EC2', url: '/fr/#about' },
+      { name: 'Application Load Balancer', url: '/fr/#about' },
+      { name: 'Réseau CloudFront CDN', url: '/fr/#about' },
     ],
   },
   {
-    section: 'Société',
+    section: 'Projet',
     links: [
-      { name: 'À propos de nous', url: '#' },
-      { name: 'Blog', url: '/fr/blog' },
-      { name: 'Carrières', url: '#' },
-      { name: 'Clients', url: '#' },
+      { name: 'À propos de nous', url: '/fr/#about' },
+      { name: 'Équipe Alpha', url: '/fr/#contact' },
+      { name: 'Dépôt GitHub', url: 'https://github.com/Mustapha-Haadi/internship-cloud-solution-design' },
     ],
   },
 ];
@@ -29,7 +27,7 @@ const footerLinks = [
 const socialLinks = {
   facebook: '#',
   x: '#',
-  github: '#',
+  github: 'https://github.com/Mustapha-Haadi/internship-cloud-solution-design',
   google: '#',
   slack: '#',
 };
