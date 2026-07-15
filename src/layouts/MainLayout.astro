@@ -14,6 +14,8 @@ const {
   lang = 'en',
   customDescription = null,
   customOgTitle = null,
+  showNav = true,
+  showFooter = true,
 } = Astro.props;
 
 // Interface to type-check the properties
@@ -24,6 +26,8 @@ interface Props {
   lang?: string;
   customDescription?: string | null;
   customOgTitle?: string | null;
+  showNav?: boolean;
+  showFooter?: boolean;
 }
 ---
 
@@ -66,12 +70,12 @@ interface Props {
     <div
       class="mx-auto w-full max-w-(--breakpoint-2xl) grow px-4 sm:px-6 lg:px-8"
     >
-      <Navbar />
+      {showNav && <Navbar />}
       <main>
         <slot />
       </main>
     </div>
-    <FooterSection />
+    {showFooter && <FooterSection />}
     <script>
       import 'preline';
       const init = () =>
