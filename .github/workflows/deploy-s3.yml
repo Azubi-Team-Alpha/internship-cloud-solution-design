@@ -15,6 +15,7 @@ jobs:
   build-and-deploy:
     name: Build & Deploy to S3
     runs-on: ubuntu-latest
+    environment: end-to-end-cloud
 
     steps:
       # ── 1. Checkout ──────────────────────────────────────────────────────────

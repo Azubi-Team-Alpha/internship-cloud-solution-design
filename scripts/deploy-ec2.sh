@@ -5,9 +5,9 @@ set -e
 
 # Configuration
 EC2_HOST=${1:-$EC2_HOST}
-EC2_USER=${2:-"ubuntu"}
+EC2_USER=${2:-"ec2-user"}
 SSH_KEY_PATH=${3:-$SSH_KEY_PATH}
-REPO_DIR="/home/ubuntu/internship-cloud-solution-design"
+REPO_DIR="/home/ec2-user/internship-cloud-solution-design"
 WEB_DIR="/var/www/alphapay"
 
 if [ -z "$EC2_HOST" ]; then

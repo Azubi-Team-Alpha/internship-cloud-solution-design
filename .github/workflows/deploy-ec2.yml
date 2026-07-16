@@ -10,6 +10,7 @@ jobs:
   deploy-to-ec2:
     name: Deploy to EC2
     runs-on: ubuntu-latest
+    environment: end-to-end-cloud
 
     steps:
       # ── 1. Checkout repository ────────────────────────────────────────────────
@@ -27,4 +28,4 @@ jobs:
       - name: Execute deployment script
         run: |
           chmod +x scripts/deploy-ec2.sh
-          ./scripts/deploy-ec2.sh "${{ secrets.EC2_HOST }}" "${{ secrets.EC2_USERNAME || 'ubuntu' }}" ~/.ssh/id_rsa
+          ./scripts/deploy-ec2.sh "${{ secrets.EC2_HOST }}" "${{ secrets.EC2_USERNAME }}" ~/.ssh/id_rsa
