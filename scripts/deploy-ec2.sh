@@ -52,7 +52,7 @@ EOF
 
 # Execute commands on EC2 via SSH
 if [ -n "$SSH_KEY_PATH" ]; then
-  ssh -i "$SSH_KEY_PATH" -o StrictHostKeyChecking=no "$EC2_USER@$EC2_HOST" "$REMOTE_COMMANDS"
+  ssh -v -i "$SSH_KEY_PATH" -o StrictHostKeyChecking=no "$EC2_USER@$EC2_HOST" "$REMOTE_COMMANDS"
 else
-  ssh -o StrictHostKeyChecking=no "$EC2_USER@$EC2_HOST" "$REMOTE_COMMANDS"
+  ssh -v -o StrictHostKeyChecking=no "$EC2_USER@$EC2_HOST" "$REMOTE_COMMANDS"
 fi
