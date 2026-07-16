@@ -41,6 +41,19 @@ fi
 # 3. Ensure Nginx is installed, configured, running, and reloaded
 echo "3. Configuring and reloading Nginx..."
 RELOAD_COMMANDS=$(cat <<'EOF'
+  set -e
+
+  # Proactively stop Apache/httpd/apache2 if running to free port 80
+  if systemctl list-unit-files --type=service | grep -q httpd; then
+    echo "Stopping httpd (Apache) to prevent port 80 conflict..."
+    sudo systemctl stop httpd || true
+    sudo systemctl disable httpd || true
+  elif systemctl list-unit-files --type=service | grep -q apache2; then
+    echo "Stopping apache2 (Apache) to prevent port 80 conflict..."
+    sudo systemctl stop apache2 || true
+    sudo systemctl disable apache2 || true
+  fi
+
   # Check if nginx service exists, install if missing
   if ! systemctl list-unit-files --type=service | grep -q nginx; then
     echo "Nginx service not found. Installing Nginx..."
@@ -56,9 +69,15 @@ RELOAD_COMMANDS=$(cat <<'EOF'
       exit 1
     fi
     
-    echo "Enabling and starting Nginx..."
+    echo "Enabling Nginx..."
     sudo systemctl enable nginx
-    sudo systemctl start nginx
+  fi
+
+  # Shift the default server block port in nginx.conf from 80 to 8080 to prevent conflicts
+  if [ -f /etc/nginx/nginx.conf ]; then
+    echo "Disabling default server block on port 80 in /etc/nginx/nginx.conf..."
+    sudo sed -i -r 's/listen\s+80/listen 8080/g' /etc/nginx/nginx.conf || true
+    sudo sed -i -r 's/listen\s+\[::\]:80/listen [::]:8080/g' /etc/nginx/nginx.conf || true
   fi
 
   # Automatically setup basic catch-all Nginx block if none exists
@@ -84,8 +103,15 @@ RELOAD_COMMANDS=$(cat <<'EOF'
     fi
   fi
 
-  echo "Reloading Nginx server..."
-  sudo systemctl reload nginx || sudo systemctl restart nginx
+  echo "Starting/Restarting Nginx server..."
+  if ! sudo systemctl restart nginx; then
+    echo "=== NGINX CONFIGURATION TEST ==="
+    sudo nginx -t || true
+    echo "=== NGINX START FAILURE LOGS ==="
+    sudo systemctl status nginx.service --no-pager || true
+    sudo journalctl -n 50 -u nginx.service --no-pager || true
+    exit 1
+  fi
 EOF
 )
 
