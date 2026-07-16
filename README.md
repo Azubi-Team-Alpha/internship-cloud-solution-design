@@ -15,7 +15,7 @@ The platform is built as an interactive static **Astro** Single Page Application
 
 ## Live Site
 
-🌐 **[alphapay.africa](https://alphapay.teamalpha.live)**
+🌐 **[alphapay.teamalpha.live](https://alphapay.teamalpha.live)**
 
 ---
 
