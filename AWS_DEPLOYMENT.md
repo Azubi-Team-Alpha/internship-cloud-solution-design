@@ -64,8 +64,26 @@ To prevent users from bypassing CloudFront and accessing S3 directly, attach the
 5. **Viewer Protocol Policy**: Select **Redirect HTTP to HTTPS**.
 6. **SSL Certificate**: Generate an SSL certificate for your domain (`alphapay.africa`) via **AWS Certificate Manager (ACM)** in us-east-1 and attach it.
 7. Set alternate domain names (CNAMEs): `alphapay.africa`, `www.alphapay.africa`.
+8. **SPA Routing Fallback (Custom Error Responses)**:
+   To prevent `403 Forbidden` or `404 Not Found` when directly accessing subpaths (like `/signup/` or `/signin/`), you must configure CloudFront custom error responses:
+   - Go to the **Error pages** tab of your distribution.
+   - Click **Create custom error response**.
+   - Select **403: Forbidden**. Set *Customize error response* to **Yes**, *Response page path* to `/index.html`, and *HTTP response code* to **200: OK**.
+   - Repeat the exact same steps to create a custom error response for **404: Not Found** (re-routing it to `/index.html` with a **200: OK** response).
 
-### 4. Setup GitHub Actions CI/CD
+### 4. Astro Configuration Requirements
+To ensure the build outputs align with CloudFront routing, make sure `astro.config.mjs` has the following options configured:
+```javascript
+import { defineConfig } from 'astro/config';
+
+export default defineConfig({
+  trailingSlash: 'always', // Forces pages to compile as folders with index.html
+  base: '/',              // Ensures relative root paths are loaded
+  output: 'static'        // Explicitly declares static routing
+});
+```
+
+### 5. Setup GitHub Actions CI/CD
 Add these repository secrets on GitHub under `Settings → Secrets and variables → Actions`:
 *   `AWS_ACCESS_KEY_ID`: Your IAM deployment access key.
 *   `AWS_SECRET_ACCESS_KEY`: Your IAM deployment secret.

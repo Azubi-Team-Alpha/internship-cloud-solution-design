@@ -13,6 +13,59 @@ The platform is built as an interactive static **Astro** Single Page Application
 
 ---
 
+## Architecture
+
+The diagram below outlines the end-to-end cloud infrastructure of AlphaPay. It illustrates Route 53 DNS routing, the CloudFront global CDN distribution, the serverless S3 origin (Option A), the virtual server Nginx hosting via an ALB (Option B), and the hybrid S3-to-EC2 sync method (Option C), along with the automated GitHub Actions CI/CD pipelines.
+
+```mermaid
+graph TD
+    classDef client fill:#f3f4f6,stroke:#4b5563,stroke-width:2px;
+    classDef aws fill:#ff9900,stroke:#d97706,stroke-width:2px,color:#fff;
+    classDef service fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;
+    classDef tool fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;
+
+    User(("🌐 Client Browser")):::client
+    DNS("🗺️ Route 53 DNS"):::aws
+    
+    subgraph AWS_Cloud ["☁️ Amazon Web Services (AWS)"]
+        CF["⚡ Amazon CloudFront (CDN)"]:::aws
+        ACM["🔒 AWS Certificate Manager (SSL)"]:::aws
+        
+        subgraph Option_A ["Option A: Serverless Hosting (Recommended)"]
+            S3["📦 Amazon S3 Bucket (Private Static Files)"]:::aws
+        end
+
+        subgraph Option_B_C ["Option B & C: Virtual Server / Hybrid Hosting"]
+            ALB["⚖️ Application Load Balancer (ALB)"]:::aws
+            EC2["🖥️ Amazon EC2 Instance (Nginx Server)"]:::aws
+            cron["⏰ Cron Job Script"]:::service
+        end
+    end
+
+    subgraph Development_Lifecycle ["🛠️ CI/CD Pipeline"]
+        Git["💻 GitHub Repository"]:::tool
+        GA["🚀 GitHub Actions Runner"]:::tool
+    end
+
+    User -->|1. Request CNAME| DNS
+    DNS -->|2. Route Traffic| CF
+    CF -.->|Request SSL Cert| ACM
+    
+    CF -->|3a. Read Objects (OAC Verified)| S3
+    
+    CF -->|3b. Forward Request (Custom Host Header)| ALB
+    ALB -->|4. Private Traffic (Port 8080)| EC2
+    
+    Git -->|Push to main| GA
+    GA -->|Deploy Option A| S3
+    GA -->|Deploy Option B| EC2
+    
+    S3 -.->|Option C: Sync to /var/www/| cron
+    cron -.->|Auto Pull Files| EC2
+```
+
+---
+
 ## Live Site
 
 🌐 **[alphapay.teamalpha.live](https://alphapay.teamalpha.live)**
