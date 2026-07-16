@@ -197,6 +197,27 @@ To cache content globally and protect the EC2 instance from DDoS attacks:
 5. **Cache Key & Origin Requests**: Select **CacheOptimized**.
 6. **SSL Certificate**: Generate/Attach the ACM SSL certificate matching `alphapay.africa` to the distribution.
 
+### 8. Setup GitHub Actions CI/CD (Automated EC2 Pipeline)
+To automate the build and deployment process to your EC2 instance on every push to the `main` branch:
+
+1. **Configure Environment Secrets**:
+   Go to your GitHub repository → **Settings** → **Secrets and variables** → **Actions** → **New environment secret** under the `end-to-end-cloud` environment:
+   - `EC2_HOST`: The public IP or DNS name of your EC2 instance.
+   - `EC2_USERNAME`: The SSH login username (e.g., `ec2-user` or `ubuntu`).
+   - `EC2_SSH_KEY`: The contents of your private SSH key (`.pem` file).
+
+2. **How the Automated Pipeline Works**:
+   The workflow defined in `.github/workflows/deploy-ec2.yml` runs automatically and performs the following actions:
+   - **Code Checkout**: Clones the codebase onto the GitHub runner.
+   - **Runner Build**: Installs dependencies and compiles the Astro static build into `dist/` on the runner, avoiding memory exhaustion issues on smaller EC2 instances (like `t2.micro`).
+   - **Pre-deploy Prep**: Connects via SSH to prepare `/var/www/alphapay` on the EC2 instance and sets ownership permissions.
+   - **Rsync Sync**: Copies the built files from the runner using `rsync` directly to the target directory.
+   - **Self-Healing Nginx**:
+     - Automatically stops conflicting web services like Apache (`httpd` or `apache2`).
+     - Checks if Nginx is installed, and automatically installs it if missing (supporting Ubuntu, Amazon Linux 2023, and CentOS/RHEL).
+     - Modifies the default Nginx configuration (`/etc/nginx/nginx.conf`) to change the default listen port to `8080` to prevent conflicts on port 80.
+     - Configures a catch-all block for AlphaPay on port 80 if no prior configuration exists, making the site immediately active at the EC2 public IP.
+     - Restarts/reloads Nginx to serve the newly deployed files.
 
 ---
 

@@ -23,7 +23,7 @@ const ogTitle = 'Sign In | AlphaPay';
         <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
           Don&apos;t have an account?{' '}
           <a
-            href="/signup"
+            href="/signup/"
             class="font-medium text-orange-400 decoration-2 hover:underline dark:text-orange-400"
           >
             Sign up here
@@ -96,7 +96,7 @@ const ogTitle = 'Sign In | AlphaPay';
                     Password
                   </label>
                   <a
-                    href="/forgot-password"
+                    href="/forgot-password/"
                     class="rounded-lg text-sm font-medium text-orange-400 decoration-2 ring-zinc-500 outline-hidden hover:underline focus-visible:ring-3 dark:text-orange-400 dark:ring-zinc-200"
                   >
                     Forgot password?
@@ -255,7 +255,7 @@ const ogTitle = 'Sign In | AlphaPay';
       loginTime: new Date().toISOString(),
     }));
 
-    window.location.href = '/dashboard';
+    window.location.href = '/dashboard/';
   });
 
   // ── Google SSO mock ───────────────────────────────────────────────────────────
@@ -269,6 +269,6 @@ const ogTitle = 'Sign In | AlphaPay';
       balance: 'GH₵ 3,200.00',
       loginTime: new Date().toISOString(),
     }));
-    window.location.href = '/dashboard';
+    window.location.href = '/dashboard/';
   });
 </script>

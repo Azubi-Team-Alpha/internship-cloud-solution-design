@@ -293,8 +293,8 @@ const pageTitle = `Dashboard | ${SITE.title}`;
     const rawUser = localStorage.getItem('alphapay_user');
     if (!rawUser) {
       // If we are on the dashboard page and not logged in, redirect
-      if (window.location.pathname.endsWith('/dashboard')) {
-        window.location.href = '/signin';
+      if (window.location.pathname.includes('/dashboard')) {
+        window.location.href = '/signin/';
       }
       return;
     }
