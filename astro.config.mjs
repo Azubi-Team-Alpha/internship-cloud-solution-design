@@ -11,16 +11,16 @@ export default defineConfig({
   image: {
     domains: ['images.unsplash.com'],
   },
-  // i18n: {
-  //   defaultLocale: "en",
-  //   locales: ["en", "fr"],
-  //   fallback: {
-  //     fr: "en",
-  //   },
-  //   routing: {
-  //     prefixDefaultLocale: false,
-  //   },
-  // },
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "fr"],
+    fallback: {
+      fr: "en",
+    },
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   prefetch: true,
   integrations: [
     sitemap({
@@ -34,41 +34,22 @@ export default defineConfig({
     }),
     starlight({
       title: 'AlphaPay Docs',
-      locales: {
-        root: {
-          label: 'English',
-          lang: 'en',
-        },
-        de: { label: 'Deutsch', lang: 'de' },
-        es: { label: 'Español', lang: 'es' },
-        fa: { label: 'Persian', lang: 'fa', dir: 'rtl' },
-        fr: { label: 'Français', lang: 'fr' },
-        ja: { label: '日本語', lang: 'ja' },
-        'zh-cn': { label: '简体中文', lang: 'zh-CN' },
-      },
+      defaultLocale: 'en',
       sidebar: [
         {
           label: 'Quick Start Guides',
-          translations: {
-            de: 'Schnellstartanleitungen',
-            es: 'Guías de Inicio Rápido',
-            fa: 'راهنمای شروع سریع',
-            fr: 'Guides de Démarrage Rapide',
-            ja: 'クイックスタートガイド',
-            'zh-cn': '快速入门指南',
-          },
           items: [{ autogenerate: { directory: 'guides' } }],
         },
         {
           label: 'Transfers & Payments API',
           items: [
-            { label: 'Transfers API', link: 'tools/tool-guides/' },
-            { label: 'Webhooks & Events', link: 'tools/equipment-care/' },
+            { label: 'Transfers API', link: 'payments/transfers/' },
+            { label: 'Webhooks & Events', link: 'payments/webhooks/' },
           ],
         },
         {
           label: 'Collections & Integrations',
-          items: [{ autogenerate: { directory: 'construction' } }],
+          items: [{ autogenerate: { directory: 'collections' } }],
         },
         {
           label: 'Advanced Topics',

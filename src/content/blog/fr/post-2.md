@@ -1,21 +1,19 @@
 ---
-title: "Améliorer la Sécurité et l'Artisanat avec les Services de Construction de AlphaPay"
-description: 'Services de construction de qualité pour des résultats durables'
+title: "Sécurité et conformité : Instaurer la confiance dans la fintech africaine"
+description: "Comment AlphaPay met en œuvre une sécurité de niveau bancaire, le filtrage LCB/FT et une infrastructure AWS robuste."
 author: 'Brad'
 authorImage: '@/images/blog/brad.avif'
-authorImageAlt: 'Avatar Description'
+authorImageAlt: 'Brad - Ingénieur Sécurité AlphaPay'
 pubDate: 2024-02-10
 cardImage: '@/images/blog/post-2.avif'
-cardImageAlt: 'Man in black sweatpants using DEWALT circular saw and cutting a wood plank'
+cardImageAlt: 'Visuel conceptuel de l infrastructure de sécurité'
 readTime: 5
-tags: ['sécurité', 'artisanat', 'gestion']
+tags: ['securite', 'conformite', 'aws']
 contents:
   [
-    "En matière de construction, la sécurité et la qualité de l'artisanat sont non négociables. Chez AlphaPay, nous sommes fiers de proposer une gamme de services de construction qui privilégient les deux, garantissant que vos projets sont construits pour durer.",
-    "Notre équipe d'artisans qualifiés apporte précision et expertise à chaque travail, des installations mineures aux travaux structuraux à grande échelle. Avec des outils et des matériaux de haute qualité issus de notre vaste inventaire, nous garantissons les normes de sécurité et d'artisanat les plus élevées sur chaque projet.",
-    "Mais notre engagement envers l'excellence ne s'arrête pas là. Nous fournissons également des services complets de gestion de projet pour maintenir votre construction sur la bonne voie et dans les limites du budget. De la coordination du flux de travail à la communication avec les parties prenantes, AlphaPay gère les complexités pour que vous puissiez vous concentrer sur votre vision.",
-    "Ce qui distingue AlphaPay, c'est notre dévouement à un soutien continu. Nous ne terminons pas simplement le travail et partons - nous sommes là pour le long terme. Nos services de maintenance garantissent que votre construction reste en parfait état, offrant une tranquillité d'esprit pour les années à venir.",
-    "Pour les clients d'entreprise de plus grande envergure, nous proposons des solutions personnalisées adaptées à vos défis uniques. En comprenant vos besoins spécifiques, nous concevons des stratégies visant à maximiser l'efficacité et à faire avancer votre entreprise.",
-    "Avec les services de construction de AlphaPay, vous pouvez avoir confiance que vos projets sont entre de bonnes mains. Découvrez la différence dès aujourd'hui et voyez pourquoi tant de clients choisissent AlphaPay pour leurs besoins en construction.",
+    "En matière de technologie financière, la sécurité et la conformité réglementaire sont indiscutables. Chez AlphaPay, nous sommes fiers d'offrir une plateforme de paiement qui donne la priorité aux deux, garantissant que chaque transfert est sécurisé, chiffré et conforme aux réglementations locales.",
+    "Notre plateforme repose sur des principes de sécurité de niveau bancaire, utilisant le chiffrement TLS 1.3 pour toutes les données en transit et exigeant HTTPS pour les connexions API. Avec l'authentification à double facteur (2FA) et un moteur de détection des fraudes en temps réel, nous protégeons vos transactions au quotidien.",
+    "Nous sommes également engagés dans le respect des réglementations contre le blanchiment d'argent (LCB/FT). Chaque transaction est analysée en temps réel et notre processus de vérification KYC à plusieurs niveaux valide l'identité des clients sans friction.",
+    "Notre infrastructure est déployée sur AWS avec des services hautement disponibles tels qu'Amazon EC2, l'ALB et CloudFront, gérés via Terraform et déployés par GitHub Actions, pour garantir l'application continue de nos contrôles de sécurité.",
   ]
 ---
