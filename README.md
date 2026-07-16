@@ -84,6 +84,46 @@ This runs `astro check` (TypeScript validation), `astro build` (static site gene
 
 ---
 
+## Environment Variables & CI/CD Secrets
+
+The project utilizes environment variables for local integration/testing and automated CI/CD deployments on AWS (S3 and EC2).
+
+### Local Setup
+
+Copy the example environment file to create your local `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Configure the local keys in `.env` to match your local SDK credentials and testing environment.
+
+### GitHub Secrets Configuration
+
+To run the automated deployment pipelines successfully, configure the following secrets in your GitHub repository under **Settings → Secrets and variables → Actions**:
+
+#### 1. S3 Deployment Secrets (`deploy-s3.yml`)
+These secrets are used to compile the project and upload the built assets to AWS S3, with cache invalidation handled by Amazon CloudFront:
+
+| Secret Name | Description | Required | Default |
+|---|---|---|---|
+| `AWS_ACCESS_KEY_ID` | Access Key of the IAM deployment user. | **Yes** | - |
+| `AWS_SECRET_ACCESS_KEY` | Secret Key of the IAM deployment user. | **Yes** | - |
+| `AWS_REGION` | The AWS region where S3 is hosted. | No | `us-east-1` |
+| `S3_BUCKET` | The target S3 bucket name. | No | `alphapay-africa-static` |
+| `CLOUDFRONT_DISTRIBUTION_ID` | CloudFront Distribution ID for cache invalidation. | No | *Skipped if unset* |
+
+#### 2. EC2 Deployment Secrets (`deploy-ec2.yml`)
+These secrets are used to SSH into your EC2 Nginx instance, pull the latest code from GitHub, build the project, and reload the server:
+
+| Secret Name | Description | Required | Default |
+|---|---|---|---|
+| `EC2_HOST` | The Public IP address or DNS name of your EC2 instance. | **Yes** | - |
+| `EC2_USERNAME` | The SSH username to connect to EC2. | No | `ubuntu` |
+| `EC2_SSH_KEY` | The contents of your private SSH key (`.pem` file). | **Yes** | - |
+
+---
+
 ## Project Structure
 
 ```

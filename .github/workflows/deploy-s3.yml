@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 env:
-  AWS_REGION: us-east-1
-  S3_BUCKET: alphapay-africa-static
+  AWS_REGION: ${{ secrets.AWS_REGION || 'us-east-1' }}
+  S3_BUCKET: ${{ secrets.S3_BUCKET || 'alphapay-africa-static' }}
   CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 
 jobs:

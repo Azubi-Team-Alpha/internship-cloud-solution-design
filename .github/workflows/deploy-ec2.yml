@@ -1,0 +1,30 @@
+name: Deploy AlphaPay to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy-to-ec2:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Checkout repository ────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── 2. Set up SSH Key ────────────────────────────────────────────────────
+      - name: Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      # ── 3. Execute Remote Deployment via SSH Script ─────────────────────────
+      - name: Execute deployment script
+        run: |
+          chmod +x scripts/deploy-ec2.sh
+          ./scripts/deploy-ec2.sh "${{ secrets.EC2_HOST }}" "${{ secrets.EC2_USERNAME || 'ubuntu' }}" ~/.ssh/id_rsa
