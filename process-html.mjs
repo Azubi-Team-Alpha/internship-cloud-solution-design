@@ -2,8 +2,11 @@ import fs from 'node:fs/promises';
 import { globby } from 'globby';
 import { minify } from 'html-minifier-terser';
 
+import { existsSync } from 'node:fs';
+
 // Get all HTML files from the output directory
-const path = './.vercel/output/static';
+const path = existsSync('./.vercel/output/static') ? './.vercel/output/static' : './dist';
+console.log('Minifying HTML files in:', path);
 const files = await globby(`${path}/**/*.html`);
 
 await Promise.all(

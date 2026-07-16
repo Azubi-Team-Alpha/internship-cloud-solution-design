@@ -4,16 +4,32 @@ import { Image } from 'astro:assets';
 const { src, alt } = Astro.props;
 
 interface Props {
-  src: string;
+  src: any;
   alt: string;
 }
+
+const isRemote = typeof src === 'string' && (src.startsWith('http://') || src.startsWith('https://'));
 ---
 
-<Image
-  class="inline-block h-8 w-8 rounded-full ring-2 ring-neutral-50 dark:ring-zinc-800"
-  src={src}
-  alt={alt}
-  width={32}
-  height={32}
-  loading={'eager'}
-/>
+{
+  isRemote ? (
+    <img
+      class="inline-block h-8 w-8 rounded-full ring-2 ring-neutral-50 dark:ring-zinc-800 object-cover"
+      src={src}
+      alt={alt}
+      width="32"
+      height="32"
+      loading="eager"
+    />
+  ) : (
+    <Image
+      class="inline-block h-8 w-8 rounded-full ring-2 ring-neutral-50 dark:ring-zinc-800 object-cover"
+      src={src}
+      alt={alt}
+      width={32}
+      height={32}
+      loading={'eager'}
+    />
+  )
+}
+

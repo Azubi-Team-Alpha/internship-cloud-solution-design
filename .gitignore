@@ -1,17 +1,24 @@
-.DS_*
+# Build and Cache directories
+dist/
+.astro/
+.vercel/
+node_modules/
+bower_components/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDEs and OS files
+.DS_Store
+.DS_Store?
 *.log
 logs
 **/*.backup.*
 **/*.back.*
-
-node_modules
-bower_components
-
 *.sublime*
-
 psd
 thumb
 sketch
 
-
-# End of https://mrkandreev.name/snippets/gitignore-generator/#react,css

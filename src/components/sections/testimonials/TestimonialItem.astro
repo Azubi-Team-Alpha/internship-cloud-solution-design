@@ -8,8 +8,10 @@ interface Props {
   content: string;
   author: string;
   role: string;
-  avatarSrc: string;
+  avatarSrc: any;
 }
+
+const isRemote = typeof avatarSrc === 'string' && (avatarSrc.startsWith('http://') || avatarSrc.startsWith('https://'));
 ---
 
 <blockquote class="relative">
@@ -24,14 +26,27 @@ interface Props {
   <div class="mt-6">
     <div class="flex items-center">
       <div class="shrink-0">
-        <Image
-          class="h-8 w-8 rounded-full"
-          src={avatarSrc}
-          alt="Avatar Description"
-          width={32}
-          height={32}
-          loading={'eager'}
-        />
+        {
+          isRemote ? (
+            <img
+              class="h-8 w-8 rounded-full object-cover"
+              src={avatarSrc}
+              alt="Avatar Description"
+              width="32"
+              height="32"
+              loading="eager"
+            />
+          ) : (
+            <Image
+              class="h-8 w-8 rounded-full object-cover"
+              src={avatarSrc}
+              alt="Avatar Description"
+              width={32}
+              height={32}
+              loading={'eager'}
+            />
+          )
+        }
       </div>
       <div class="ms-4 grow">
         <div class="font-bold text-neutral-800 dark:text-neutral-200">
@@ -42,3 +57,4 @@ interface Props {
     </div>
   </div>
 </blockquote>
+

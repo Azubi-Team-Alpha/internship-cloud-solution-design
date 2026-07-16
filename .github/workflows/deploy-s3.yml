@@ -59,12 +59,13 @@ jobs:
           aws s3 sync dist/ s3://${{ env.S3_BUCKET }} \
             --delete \
             --cache-control "public, max-age=0, must-revalidate" \
+            --exclude "*" \
             --include "*.html" \
             --include "*.json"
 
       # ── 7. Invalidate CloudFront cache ───────────────────────────────────────
       - name: Invalidate CloudFront distribution
-        if: env.CLOUDFRONT_DISTRIBUTION_ID != ''
+        if: ${{ env.CLOUDFRONT_DISTRIBUTION_ID != '' }}
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
@@ -76,3 +77,4 @@ jobs:
           echo "✅ AlphaPay deployed to S3!"
           echo "🌐 Bucket: s3://${{ env.S3_BUCKET }}"
           echo "⚡ CloudFront cache invalidated"
+
