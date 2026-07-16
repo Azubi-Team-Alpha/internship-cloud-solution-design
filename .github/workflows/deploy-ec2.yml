@@ -17,7 +17,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ── 2. Set up SSH Key ────────────────────────────────────────────────────
+      # ── 2. Setup Node.js ─────────────────────────────────────────────────────
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      # ── 3. Install dependencies ───────────────────────────────────────────────
+      - name: Install dependencies
+        run: npm ci
+
+      # ── 4. Build Astro site ───────────────────────────────────────────────────
+      - name: Build static site
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      # ── 5. Set up SSH Key ────────────────────────────────────────────────────
       - name: Setup SSH Key
         env:
           SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
@@ -26,7 +43,7 @@ jobs:
           echo "$SSH_KEY" | tr -d '\r' > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
-      # ── 3. Execute Remote Deployment via SSH Script ─────────────────────────
+      # ── 6. Execute Remote Deployment via SSH Script ─────────────────────────
       - name: Execute deployment script
         run: |
           chmod +x scripts/deploy-ec2.sh
