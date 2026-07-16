@@ -6,16 +6,15 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  AWS_REGION: ${{ secrets.AWS_REGION || 'us-east-1' }}
-  S3_BUCKET: ${{ secrets.S3_BUCKET || 'alphapay-africa-static' }}
-  CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-
 jobs:
   build-and-deploy:
     name: Build & Deploy to S3
     runs-on: ubuntu-latest
     environment: end-to-end-cloud
+    env:
+      AWS_REGION: ${{ secrets.AWS_REGION || 'us-east-1' }}
+      S3_BUCKET: ${{ secrets.S3_BUCKET || 'alphapay-africa-static' }}
+      CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 
     steps:
       # ── 1. Checkout ──────────────────────────────────────────────────────────
