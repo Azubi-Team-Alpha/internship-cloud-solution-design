@@ -39,6 +39,7 @@ The diagram below outlines the end-to-end cloud infrastructure of AlphaPay. It i
 | Daniel Hanson Reynolds | Developer |
 | Zakaria Adeeba | Developer |
 | Evame Cobblah | Developer |
+| William Mukoyani | Mentor / Investor |
 
 ---
 
