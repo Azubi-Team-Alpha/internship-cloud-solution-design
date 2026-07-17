@@ -6,6 +6,7 @@ dist/
 node_modules/
 jspm_packages/
 bower_components/
+.secret-folder/
 
 # Environment variables & secrets
 .env
