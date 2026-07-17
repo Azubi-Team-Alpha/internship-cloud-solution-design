@@ -1,5 +1,7 @@
 # AlphaPay – AWS Deployment Guide
 
+*Interactive Source Diagram:* 🌐 **[Open/Edit in Draw.io (Google Drive)](https://drive.google.com/file/d/1hs1qO98tOMvZOIirGhfb_jUCJuWc1JQX/view?usp=sharing)**
+
 This guide details the step-by-step procedures to build, deploy, and distribute the AlphaPay fintech platform on AWS using three hosting options:
 
 *   **Option A: S3 Serverless Hosting (Recommended)** – Ultra-cost-effective, serverless, zero-maintenance.
