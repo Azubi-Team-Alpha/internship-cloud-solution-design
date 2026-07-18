@@ -1,6 +1,6 @@
 # AlphaPay – AWS Deployment Guide
 
-*Interactive Source Diagram:* 🌐 **[Open/Edit in Draw.io (Google Drive)](https://drive.google.com/file/d/1hs1qO98tOMvZOIirGhfb_jUCJuWc1JQX/view?usp=sharing)**
+*Interactive Source Diagram:* 🌐 **[Open/Edit in Draw.io](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=alphapay-architecture-diagram.drawio&dark=auto#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1hs1qO98tOMvZOIirGhfb_jUCJuWc1JQX%26export%3Ddownload)**
 
 This guide details the step-by-step procedures to build, deploy, and distribute the AlphaPay fintech platform on AWS using three hosting options:
 

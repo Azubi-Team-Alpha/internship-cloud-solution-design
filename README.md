@@ -19,7 +19,7 @@ The diagram below outlines the end-to-end cloud infrastructure of AlphaPay. It i
 
 ![AlphaPay AWS Architecture Diagram](docs/alphapay-architecture-diagram.drawio.png)
 
-*Interactive Source:* 🌐 **[Open/Edit in Draw.io (Google Drive)](https://drive.google.com/file/d/1hs1qO98tOMvZOIirGhfb_jUCJuWc1JQX/view?usp=sharing)**
+*Interactive Source:* 🌐 **[Open/Edit in Draw.io](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=alphapay-architecture-diagram.drawio&dark=auto#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1hs1qO98tOMvZOIirGhfb_jUCJuWc1JQX%26export%3Ddownload)**
 
 ---
 
